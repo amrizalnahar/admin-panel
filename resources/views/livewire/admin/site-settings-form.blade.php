@@ -23,11 +23,6 @@
                         @error('siteName') <p class="mt-1 text-xs text-red-600">{{ $message }}</p> @enderror
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Nama Desa</label>
-                        <input wire:model="villageName" type="text" class="w-full border-gray-300 focus:border-[#1A6FAA] focus:ring-[#1A6FAA] rounded-lg text-sm">
-                        @error('villageName') <p class="mt-1 text-xs text-red-600">{{ $message }}</p> @enderror
-                    </div>
-                    <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Deskripsi Situs</label>
                         <textarea wire:model="siteDescription" rows="3" class="w-full border-gray-300 focus:border-[#1A6FAA] focus:ring-[#1A6FAA] rounded-lg text-sm"></textarea>
                         @error('siteDescription') <p class="mt-1 text-xs text-red-600">{{ $message }}</p> @enderror

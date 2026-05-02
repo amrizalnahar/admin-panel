@@ -15,7 +15,7 @@
             <span class="text-white">Berita & Kegiatan</span>
         </div>
         <h1 class="font-display text-4xl lg:text-5xl font-bold mb-4">Berita & Kegiatan</h1>
-        <p class="font-body text-lg text-primary-light">Informasi terkini dari kepala desa untuk warga Desa {{ \App\Models\SiteSetting::getValue('village_name', 'Desa Kita') }}</p>
+        <p class="font-body text-lg text-primary-light">Informasi terkini dari kami</p>
     </div>
 </section>
 

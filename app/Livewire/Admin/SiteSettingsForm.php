@@ -14,7 +14,6 @@ class SiteSettingsForm extends Component
     use WithFileUploads;
 
     public string $siteName = '';
-    public string $villageName = '';
     public string $siteDescription = '';
     public $siteLogo = null;
     public ?string $existingLogo = null;
@@ -40,7 +39,6 @@ class SiteSettingsForm extends Component
     public function mount(): void
     {
         $this->siteName = SiteSetting::getValue('site_name', config('app.name'));
-        $this->villageName = SiteSetting::getValue('village_name', '');
         $this->siteDescription = SiteSetting::getValue('site_description', '');
         $this->existingLogo = SiteSetting::getValue('site_logo');
         $this->existingFavicon = SiteSetting::getValue('site_favicon');
@@ -66,7 +64,6 @@ class SiteSettingsForm extends Component
     {
         $this->validate([
             'siteName' => ['nullable', 'string', 'max:255'],
-            'villageName' => ['nullable', 'string', 'max:255'],
             'siteDescription' => ['nullable', 'string', 'max:1000'],
             'siteLogo' => ['nullable', 'image', 'max:2048', 'mimes:jpg,jpeg,png,webp'],
             'siteFavicon' => ['nullable', 'image', 'max:1024', 'mimes:png,ico'],
@@ -101,7 +98,6 @@ class SiteSettingsForm extends Component
         }
 
         SiteSetting::setValue('site_name', $this->siteName ?: null);
-        SiteSetting::setValue('village_name', $this->villageName ?: null);
         SiteSetting::setValue('site_description', $this->siteDescription ?: null);
         SiteSetting::setValue('site_logo', $logoPath);
         SiteSetting::setValue('site_favicon', $faviconPath);
