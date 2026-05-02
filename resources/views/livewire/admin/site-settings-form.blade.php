@@ -27,12 +27,6 @@
                         <input wire:model="villageName" type="text" class="w-full border-gray-300 focus:border-[#1A6FAA] focus:ring-[#1A6FAA] rounded-lg text-sm">
                         @error('villageName') <p class="mt-1 text-xs text-red-600">{{ $message }}</p> @enderror
                     </div>
-                    <div class="flex items-center gap-3">
-                        <input wire:model="isElected" id="is_elected" type="checkbox" class="rounded border-gray-300 text-[#1A6FAA] focus:ring-[#1A6FAA]">
-                        <label for="is_elected" class="text-sm text-gray-700">
-                            Sudah terpilih menjadi <strong>Kepala Desa</strong>
-                        </label>
-                    </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Deskripsi Situs</label>
                         <textarea wire:model="siteDescription" rows="3" class="w-full border-gray-300 focus:border-[#1A6FAA] focus:ring-[#1A6FAA] rounded-lg text-sm"></textarea>

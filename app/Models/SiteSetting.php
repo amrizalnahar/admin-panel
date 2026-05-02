@@ -29,8 +29,4 @@ class SiteSetting extends Model
         Cache::forget("site_setting_{$key}");
     }
 
-    public static function electedRole(): string
-    {
-        return static::getValue('is_elected') ? 'Kepala Desa' : 'Calon Kepala Desa';
-    }
 }

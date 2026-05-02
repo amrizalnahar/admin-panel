@@ -26,7 +26,6 @@ class SiteSettingsForm extends Component
     public string $contactAddress = '';
 
     public string $mailFromAddress = '';
-    public bool $isElected = false;
 
     public string $socialFacebook = '';
     public string $socialInstagram = '';
@@ -51,7 +50,6 @@ class SiteSettingsForm extends Component
         $this->contactAddress = SiteSetting::getValue('contact_address', '');
 
         $this->mailFromAddress = SiteSetting::getValue('mail_from_address', config('mail.from.address', ''));
-        $this->isElected = (bool) SiteSetting::getValue('is_elected', false);
 
         $this->socialFacebook = SiteSetting::getValue('social_facebook', '');
         $this->socialInstagram = SiteSetting::getValue('social_instagram', '');
@@ -76,7 +74,6 @@ class SiteSettingsForm extends Component
             'contactPhone' => ['nullable', 'string', 'max:50'],
             'contactAddress' => ['nullable', 'string', 'max:500'],
             'mailFromAddress' => ['nullable', 'email', 'max:255'],
-            'isElected' => ['boolean'],
             'socialFacebook' => ['nullable', 'string', 'max:255'],
             'socialInstagram' => ['nullable', 'string', 'max:255'],
             'socialWhatsapp' => ['nullable', 'string', 'max:255'],
@@ -113,7 +110,6 @@ class SiteSettingsForm extends Component
         SiteSetting::setValue('contact_phone', $this->contactPhone ?: null);
         SiteSetting::setValue('contact_address', $this->contactAddress ?: null);
         SiteSetting::setValue('mail_from_address', $this->mailFromAddress ?: null);
-        SiteSetting::setValue('is_elected', $this->isElected ? '1' : null);
 
         SiteSetting::setValue('social_facebook', $this->socialFacebook ?: null);
         SiteSetting::setValue('social_instagram', $this->socialInstagram ?: null);
