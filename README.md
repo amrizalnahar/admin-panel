@@ -25,7 +25,7 @@ Boilerplate admin panel reusable berbasis Laravel, Livewire, dan Tailwind CSS. D
 - **Berita** — CRUD berita dengan Trix Editor, kategori, tag, dan thumbnail
 - **Kategori & Tags** — Master data polymorphic (dapat digunakan untuk modul lain di masa depan)
 - **Manajemen Pengguna** — Users & Roles dengan permission-based access control
-- **Pengaturan** — Konfigurasi situs dan moderasi konten
+- **Pengaturan** — Konfigurasi situs (identitas, kontak, media sosial, SEO, GA4)
 - **Monitoring** — Audit log, system log, email tester, queue monitor, schedule tasks (super-admin only)
 - **Profil Pengguna** — Upload foto avatar dan pengaturan akun
 
