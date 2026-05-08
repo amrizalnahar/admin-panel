@@ -31,7 +31,7 @@
                         <label class="block text-sm font-medium text-gray-700 mb-1">Logo</label>
                         @if($existingLogo && !$siteLogo)
                             <div class="mb-2">
-                                <img src="{{ Storage::url($existingLogo) }}" alt="Logo" class="h-16 w-auto rounded-lg object-contain border border-gray-200">
+                                <img src="{{ asset('storage/' . $existingLogo) }}" alt="Logo" class="h-16 w-auto rounded-lg object-contain border border-gray-200">
                             </div>
                         @endif
                         @if($siteLogo)
@@ -46,7 +46,7 @@
                         <label class="block text-sm font-medium text-gray-700 mb-1">Favicon</label>
                         @if($existingFavicon && !$siteFavicon)
                             <div class="mb-2">
-                                <img src="{{ Storage::url($existingFavicon) }}" alt="Favicon" class="h-8 w-8 rounded-lg object-contain border border-gray-200">
+                                <img src="{{ asset('storage/' . $existingFavicon) }}" alt="Favicon" class="h-8 w-8 rounded-lg object-contain border border-gray-200">
                             </div>
                         @endif
                         @if($siteFavicon)

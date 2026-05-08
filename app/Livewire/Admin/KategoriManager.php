@@ -52,7 +52,7 @@ class KategoriManager extends Component
                     ->whereNull('deleted_at')
                     ->ignore($this->editingId),
             ],
-            'module_type' => ['required', 'in:post,note,report,aspiration,program'],
+            'module_type' => ['required', 'in:post'],
             'description' => ['nullable', 'string'],
         ];
     }
@@ -121,8 +121,7 @@ class KategoriManager extends Component
     {
         $page = $this->getPage() ?: 1;
 
-        return Category::withCount(['posts', 'notes', 'aspirations', 'programs'])
-            ->with(['reports'])
+        return Category::withCount(['posts'])
             ->when($this->search, fn ($q) => $q->search($this->search))
             ->when($this->moduleFilter, fn ($q) => $q->where('module_type', $this->moduleFilter))
             ->orderBy($this->sortField, $this->sortDirection)
@@ -151,11 +150,7 @@ class KategoriManager extends Component
 
     private function hasRelations(Category $category): bool
     {
-        return $category->posts()->exists()
-            || $category->notes()->exists()
-            || $category->aspirations()->exists()
-            || $category->programs()->exists()
-            || $category->reports()->exists();
+        return $category->posts()->exists();
     }
 
     public function generateSlug(): void
@@ -230,7 +225,7 @@ class KategoriManager extends Component
         $category = Category::findOrFail($this->confirmingDelete);
 
         if ($this->hasRelations($category)) {
-            $this->deleteError = 'Kategori "' . $category->name . '" tidak bisa dihapus karena masih digunakan oleh konten (Berita, Catatan, Laporan, Aspirasi, atau Program).';
+            $this->deleteError = 'Kategori "' . $category->name . '" tidak bisa dihapus karena masih digunakan oleh konten (Berita).';
             return;
         }
 
@@ -295,8 +290,7 @@ class KategoriManager extends Component
 
     public function render()
     {
-        $categories = Category::withCount(['posts', 'notes', 'aspirations', 'programs'])
-            ->with(['reports'])
+        $categories = Category::withCount(['posts'])
             ->when($this->search, fn ($q) => $q->search($this->search))
             ->when($this->moduleFilter, fn ($q) => $q->where('module_type', $this->moduleFilter))
             ->orderBy($this->sortField, $this->sortDirection)
@@ -304,17 +298,13 @@ class KategoriManager extends Component
 
         // Add computed total content count
         $categories->getCollection()->transform(function ($category) {
-            $category->total_content = $category->posts_count
-                + $category->notes_count
-                + $category->aspirations_count
-                + $category->programs_count
-                + $category->reports()->count();
+            $category->total_content = $category->posts_count;
             return $category;
         });
 
         return view('livewire.admin.kategori-manager', [
             'categories' => $categories,
-            'moduleTypes' => ['post' => 'Berita', 'note' => 'Catatan', 'report' => 'Laporan', 'aspiration' => 'Aspirasi', 'program' => 'Program'],
+            'moduleTypes' => ['post' => 'Berita'],
         ]);
     }
 }

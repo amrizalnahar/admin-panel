@@ -35,7 +35,6 @@ $addSection('manajemen-user', 'Manajemen User', false, [
 
 $addSection('konfigurasi', 'Konfigurasi', false, [
     $user->can('settings-list') ? ['label' => 'Pengaturan', 'url' => route('admin.pengaturan'), 'icon' => 'cog-6-tooth', 'active' => request()->routeIs('admin.pengaturan')] : null,
-    $user->can('moderation-manage') ? ['label' => 'Moderasi Konten', 'url' => route('admin.moderasi'), 'icon' => 'shield-exclamation', 'active' => request()->routeIs('admin.moderasi')] : null,
 ]);
 
 $addSection('monitoring', 'Monitoring', false, [

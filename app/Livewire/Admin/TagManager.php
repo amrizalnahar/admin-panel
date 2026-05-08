@@ -105,7 +105,7 @@ class TagManager extends Component
     {
         $page = $this->getPage() ?: 1;
 
-        return Tag::withCount(['posts', 'notes', 'reports'])
+        return Tag::withCount(['posts'])
             ->when($this->search, fn ($q) => $q->search($this->search))
             ->orderBy($this->sortField, $this->sortDirection)
             ->forPage($page, $this->perPage)
@@ -233,13 +233,13 @@ class TagManager extends Component
 
     public function render()
     {
-        $tags = Tag::withCount(['posts', 'notes', 'reports'])
+        $tags = Tag::withCount(['posts'])
             ->when($this->search, fn ($q) => $q->search($this->search))
             ->orderBy($this->sortField, $this->sortDirection)
             ->paginate($this->perPage);
 
         $tags->getCollection()->transform(function ($tag) {
-            $tag->total_content = $tag->posts_count + $tag->notes_count + $tag->reports_count;
+            $tag->total_content = $tag->posts_count;
             return $tag;
         });
 

@@ -29,7 +29,6 @@ class RolePermissionSeeder extends Seeder
             'system-queue-monitor',
             'schedule-tasks-list',
             'schedule-tasks-execute',
-            'moderation-manage',
         ];
 
         foreach ($permissions as $permission) {

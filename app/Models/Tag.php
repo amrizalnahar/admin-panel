@@ -20,16 +20,6 @@ class Tag extends Model
         return $this->morphedByMany(Post::class, 'taggable');
     }
 
-    public function notes()
-    {
-        return $this->morphedByMany(Note::class, 'taggable');
-    }
-
-    public function reports()
-    {
-        return $this->morphedByMany(Report::class, 'taggable');
-    }
-
     public function scopeSearch($query, string $term)
     {
         return $query->where(function ($q) use ($term) {

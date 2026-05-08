@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
             RolePermissionSeeder::class,
             SiteSettingSeeder::class,
             MasterDataSeeder::class,
-            ModerationWordSeeder::class,
 
             // Dummy
             ContentSeeder::class,

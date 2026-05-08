@@ -28,25 +28,21 @@ class BeritaTable extends Component
     public function updatingSearch(): void
     {
         $this->resetPage();
-        $this->selected = [];
     }
 
     public function updatingStatusFilter(): void
     {
         $this->resetPage();
-        $this->selected = [];
     }
 
     public function updatingCategoryFilter(): void
     {
         $this->resetPage();
-        $this->selected = [];
     }
 
     public function updatingPerPage(): void
     {
         $this->resetPage();
-        $this->selected = [];
     }
 
     public function sortBy(string $field): void

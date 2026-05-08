@@ -8,6 +8,8 @@
         <title>{{ \App\Models\SiteSetting::getValue('site_name', config('app.name', 'Laravel')) }}</title>
         @if($favicon = \App\Models\SiteSetting::getValue('site_favicon'))
             <link rel="icon" type="image/x-icon" href="{{ \Illuminate\Support\Facades\Storage::url($favicon) }}">
+        @else
+            <link rel="icon" type="image/x-icon" href="/favicon.ico">
         @endif
 
         <!-- Fonts -->

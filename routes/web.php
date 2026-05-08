@@ -15,7 +15,6 @@ use App\Livewire\Admin\SystemLogViewer;
 use App\Livewire\Admin\EmailTester;
 use App\Livewire\Admin\QueueMonitor;
 use App\Livewire\Admin\ScheduleTaskManager;
-use App\Livewire\Admin\ModerationWordManager;
 use App\Http\Controllers\Auth\PublicKeyController;
 use App\Http\Controllers\Public\BeritaController;
 use Illuminate\Support\Facades\Route;
@@ -130,10 +129,6 @@ Route::middleware(['auth', 'role:super-admin'])
         Route::get('/schedule-tasks', ScheduleTaskManager::class)
             ->middleware('permission:schedule-tasks-list')
             ->name('schedule-tasks');
-
-        Route::get('/moderasi', ModerationWordManager::class)
-            ->middleware('permission:moderation-manage')
-            ->name('moderasi');
     });
 
 require __DIR__.'/auth.php';

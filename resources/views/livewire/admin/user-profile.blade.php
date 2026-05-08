@@ -36,7 +36,7 @@
                             @if($avatar)
                                 <img src="{{ $avatar->temporaryUrl() }}" alt="Preview" class="h-20 w-20 rounded-full object-cover border border-gray-200">
                             @elseif($existingAvatar)
-                                <img src="{{ Storage::url($existingAvatar) }}" alt="Foto Profil" class="h-20 w-20 rounded-full object-cover border border-gray-200">
+                                <img src="{{ asset('storage/' . $existingAvatar) }}" alt="Foto Profil" class="h-20 w-20 rounded-full object-cover border border-gray-200">
                             @else
                                 <div class="h-20 w-20 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center">
                                     <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
